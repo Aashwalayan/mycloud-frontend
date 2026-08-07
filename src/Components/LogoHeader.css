@@ -1,16 +1,12 @@
 .logo-header {
-    position: absolute;
-    top: 5px;
-    left: 10px;
 
     display: flex;
     align-items: center;
-
     cursor: pointer;
 }
 
 .logo-header {
-    height: 48px;
+    height: 36px;
     width: auto;
 
     user-select: none;
