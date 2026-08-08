@@ -1,0 +1,26 @@
+.search-bar {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  height: 40px;
+  padding: 0 16px;
+  border-radius: 20px;
+  cursor: pointer;
+  background-color: #E9EEF6;
+}
+
+.search-bar:hover {
+  background-color: #f1f3f4;
+}
+
+.search-bar svg:last-child {
+  margin-left: auto;
+}
+
+.search-bar input {
+    border: none;
+    outline: none;
+    background: transparent;
+    font-size: 16;
+    flex: 1;
+}

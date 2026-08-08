@@ -1,0 +1,11 @@
+.main-card {
+  position: absolute;
+
+  top: 55px;
+  left: 210px;
+  right: 10px;
+  bottom: 10px;
+
+  background-color: white;
+  border-radius: 16px 16px 0 0;
+}

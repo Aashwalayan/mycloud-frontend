@@ -1,3 +1,6 @@
+import './Sidebar.css'
+import {useState} from 'react';
+
 import {
     House,
     Folder,
@@ -9,7 +12,7 @@ import {
 
 const sidebarItems = [
     {icon: House, label: "Home"},
-    {icon: Folder, label: "My Drive"},
+    {icon: Folder, label: "My Cloud"},
     {icon: Users, label: "Shared With Me"},
     {icon: Clock3, label: "Recent"},
     {icon: Star, label: "Starred"},
@@ -17,6 +20,9 @@ const sidebarItems = [
 ];
 
 function Sidebar(){
+
+    const [activateItem, setActivateItem] = useState("Home");
+
     return(
         <nav className='sidebar-nav'>
             <ul>
@@ -24,7 +30,12 @@ function Sidebar(){
                     const Icon = item.icon;
 
                     return (
-                        <li key={item.label}>
+                        <li 
+                        key={item.label}
+                        className= {activateItem === item.label ? "active" : ""}
+                        onClick={() => setActivateItem(item.label)}
+                        >
+                            
                             <Icon size={20} />
                             <span>{item.label}</span>
                         </li>
