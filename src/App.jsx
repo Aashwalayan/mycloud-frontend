@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 import LogoHeader from "./Components/LogoHeader";
 import Title from "./Components/Title";
 import './App.css'
@@ -7,8 +9,10 @@ import Searchbar from "./Components/Searchbar";
 import MainCard from "./Components/MainCard";
 
 function App(){
+
+  const [activeTab, setActiveTab] = useState("Home");
+
   return (
-    <>
     <div className="app">
 
       <div className="header">
@@ -17,15 +21,17 @@ function App(){
         <Searchbar/>
       </div>
 
-        <div className="sidebar-container">
+      <div className="sidebar-container">
         <NewButton />
-        <Sidebar />
+        <Sidebar 
+          activeTab = {activeTab}
+          setActiveTab = {setActiveTab}        
+        />
       </div>
 
-      <MainCard/>
+      <MainCard activeTab = {activeTab} />
 
     </div>
-    </>
   )
 }
 

@@ -1,5 +1,4 @@
 import './Sidebar.css'
-import {useState} from 'react';
 
 import {
     House,
@@ -19,9 +18,8 @@ const sidebarItems = [
     {icon: Trash2, label: "Bin"}
 ];
 
-function Sidebar(){
+function Sidebar({activeTab, setActiveTab}){
 
-    const [activateItem, setActivateItem] = useState("Home");
 
     return(
         <nav className='sidebar-nav'>
@@ -32,8 +30,8 @@ function Sidebar(){
                     return (
                         <li 
                         key={item.label}
-                        className= {activateItem === item.label ? "active" : ""}
-                        onClick={() => setActivateItem(item.label)}
+                        className= {activeTab === item.label ? "active" : ""}
+                        onClick={() => setActiveTab(item.label)}
                         >
                             
                             <Icon size={20} />
