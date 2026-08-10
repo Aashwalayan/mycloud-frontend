@@ -1,0 +1,329 @@
+@import url("https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700&family=Inter:wght@400;500;600&display=swap");
+
+:root {
+  --sky-1: #eaf1ff;
+  --sky-2: #dbe7fd;
+  --blob-1: #c9d9fb;
+  --blob-2: #b7ccf9;
+  --ink: #1a2138;
+  --ink-soft: #5b6478;
+  --card: #f8fafd;
+  --accent: #3559e0;
+  --accent-2: #6d8bff;
+  --accent-shadow: rgba(53, 89, 224, 0.18);
+  --border: #dfe6f2;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.login-page {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(180deg, var(--sky-1) 0%, var(--sky-2) 100%);
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Helvetica, Arial, sans-serif;
+  padding: 24px;
+  overflow: hidden;
+}
+
+/* Signature: soft drifting cloud blobs in the background */
+.login-page::before,
+.login-page::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);
+  opacity: 0.55;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.login-page::before {
+  width: 420px;
+  height: 420px;
+  background: var(--blob-1);
+  top: -120px;
+  left: -100px;
+  animation: drift-a 18s ease-in-out infinite alternate;
+}
+
+.login-page::after {
+  width: 380px;
+  height: 380px;
+  background: var(--blob-2);
+  bottom: -140px;
+  right: -110px;
+  animation: drift-b 22s ease-in-out infinite alternate;
+}
+
+@keyframes drift-a {
+  from {
+    transform: translate(0, 0) scale(1);
+  }
+  to {
+    transform: translate(40px, 30px) scale(1.08);
+  }
+}
+
+@keyframes drift-b {
+  from {
+    transform: translate(0, 0) scale(1);
+  }
+  to {
+    transform: translate(-30px, -25px) scale(1.06);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .login-page::before,
+  .login-page::after {
+    animation: none;
+  }
+}
+
+/* Header: logo + site name, outside the card */
+.login-header {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 28px;
+}
+
+.login-logo {
+  height: auto;
+  width: 160px;
+  object-fit: contain;
+  margin-bottom: 10px;
+  filter: drop-shadow(0 4px 10px rgba(53, 89, 224, 0.25));
+}
+
+.login-sitename {
+  margin: 0;
+  font-family: "Sora", "Inter", sans-serif;
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+}
+
+/* Card */
+.login-card {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 380px;
+  background: var(--card);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: 20px;
+  padding: 36px 34px 40px;
+  box-shadow:
+    0 1px 2px rgba(16, 24, 40, 0.04),
+    0 20px 45px var(--accent-shadow);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.login-title {
+  margin: 0 0 4px;
+  font-family: "Sora", "Inter", sans-serif;
+  font-size: 19px;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.login-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 22px;
+}
+
+.login-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  text-align: left;
+}
+
+.login-field label {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--ink-soft);
+}
+
+.login-input-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.login-input-wrap svg {
+  position: absolute;
+  left: 13px;
+  width: 16px;
+  height: 16px;
+  color: #9aa7c2;
+  pointer-events: none;
+}
+
+.login-field input {
+  width: 100%;
+  padding: 11px 14px 11px 38px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: #ffffff;
+  font-size: 14px;
+  color: var(--ink);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.login-field input::placeholder {
+  color: #a7b1c4;
+}
+
+.login-field input:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-shadow);
+}
+
+.login-button {
+  margin-top: 6px;
+  padding: 12px 14px;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(135deg, var(--accent-2), var(--accent));
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 8px 18px var(--accent-shadow);
+  transition: transform 0.08s ease, box-shadow 0.15s ease, opacity 0.15s ease;
+}
+
+.login-button:hover:not(:disabled) {
+  box-shadow: 0 10px 22px rgba(53, 89, 224, 0.28);
+}
+
+.login-button:active:not(:disabled) {
+  transform: translateY(1px);
+}
+
+.login-button:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+.login-button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.login-error {
+  margin: -6px 0 0;
+  font-size: 13px;
+  color: #d92d20;
+}
+
+.login-subtext {
+  font-size: 14px;
+  color: var(--ink-soft);
+  text-align: center;
+  margin: 0;
+}
+
+.login-welcome {
+  font-size: 15px;
+  color: var(--ink);
+  font-weight: 500;
+}
+
+/* Toast */
+.toast {
+  position: fixed;
+  top: 24px;
+  left: 50%;
+  transform: translateX(-50%) translateY(-12px);
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  background: #ffffff;
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--accent);
+  border-radius: 12px;
+  padding: 14px 16px;
+  max-width: 340px;
+  box-shadow: 0 12px 30px rgba(16, 24, 40, 0.14);
+  z-index: 10;
+  opacity: 0;
+  animation: toast-in 0.35s ease forwards, toast-out 0.35s ease forwards 4.65s;
+}
+
+.toast svg {
+  flex-shrink: 0;
+  width: 18px;
+  height: 18px;
+  color: var(--accent);
+  margin-top: 1px;
+}
+
+.toast-text {
+  font-size: 13.5px;
+  line-height: 1.45;
+  color: var(--ink);
+}
+
+.toast-text strong {
+  display: block;
+  font-size: 13.5px;
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+
+.toast-close {
+  margin-left: auto;
+  border: none;
+  background: none;
+  cursor: pointer;
+  color: #9aa7c2;
+  font-size: 15px;
+  line-height: 1;
+  padding: 0 0 0 8px;
+}
+
+.toast-close:hover {
+  color: var(--ink-soft);
+}
+
+@keyframes toast-in {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+@keyframes toast-out {
+  from {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-12px);
+  }
+}

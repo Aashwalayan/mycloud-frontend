@@ -1,5 +1,5 @@
 import "./LogoHeader.css"
-import logo from '../assets/mycloudblack.png'
+import logo from '../assets/mycloudlogo.png'
 
 
 export default function LogoHeader({

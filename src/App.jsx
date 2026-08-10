@@ -1,38 +1,25 @@
-import { useState } from "react";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
-import LogoHeader from "./Components/LogoHeader";
-import Title from "./Components/Title";
-import './App.css'
-import NewButton from "./Components/NewButton";
-import Sidebar from "./Components/Sidebar/Sidebar";
-import Searchbar from "./Components/Searchbar";
-import MainCard from "./Components/MainCard";
+import Login from "./auth/Login";
+import Signup from "./auth/Signup";
+import MainApp from "./MainApp";
 
-function App(){
+function App() {
+    return (
+        <BrowserRouter>
+            <Routes>
 
-  const [activeTab, setActiveTab] = useState("Home");
+                <Route path="/" element={<Navigate to="/login" />} />
 
-  return (
-    <div className="app">
+                <Route path="/login" element={<Login />} />
 
-      <div className="header">
-        <LogoHeader className="logo-header"/>
-        <Title/>
-        <Searchbar/>
-      </div>
+                <Route path="/signup" element={<Signup />} />
 
-      <div className="sidebar-container">
-        <NewButton />
-        <Sidebar 
-          activeTab = {activeTab}
-          setActiveTab = {setActiveTab}        
-        />
-      </div>
+                <Route path="/home" element={<MainApp />} />
 
-      <MainCard activeTab = {activeTab} />
-
-    </div>
-  )
+            </Routes>
+        </BrowserRouter>
+    );
 }
 
 export default App;
