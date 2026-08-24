@@ -1,8 +1,9 @@
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
-import Login from "./auth/Login";
-import Signup from "./auth/Signup";
+import Login from "./Auth/Login";
+import Signup from "./Auth/Signup";
 import MainApp from "./MainApp";
+import VerifyEmail from "./Auth/VerifyEmail";
 
 function App() {
     return (
@@ -16,6 +17,8 @@ function App() {
                 <Route path="/signup" element={<Signup />} />
 
                 <Route path="/home" element={<MainApp />} />
+
+                <Route path="/verify-email" element={<VerifyEmail />} />
 
             </Routes>
         </BrowserRouter>
