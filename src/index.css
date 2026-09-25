@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 html,
 body,
 #root {
@@ -11,4 +15,16 @@ body,
 
 body {
   overflow: hidden;
+}
+
+@keyframes float {
+  0%, 100% {
+    margin-left: 0;
+    margin-top: 0;
+  }
+
+  50% {
+    margin-left: 20px;
+    margin-top: -15px;
+  }
 }
