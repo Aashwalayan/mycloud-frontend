@@ -1,10 +1,12 @@
 import { useRef, useState } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import {useLocation, useNavigate, Link } from "react-router-dom";
 import HoverField from "./HoverField";
 
 const CODE_LENGTH = 6;
 
 export default function VerifyEmail() {
+  const location = useLocation();
+  const email = location.state?.email;
   const navigate = useNavigate();
   const [digits, setDigits] = useState(Array(CODE_LENGTH).fill(""));
   const inputsRef = useRef([]);
