@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-    baseURL: "http://localhost:5500/api",
+    baseURL: "https://nas-server-6myw.onrender.com/api",
 });
 
 export default api;
