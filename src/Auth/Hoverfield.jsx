@@ -9,7 +9,6 @@ const SHAPES = [
 
 const COLORS = ["#B98D3E", "#5C7A73", "#8B95A1", "#C1443C", "#7A6A9E"];
 
-// fixed positions (percent of container) so the layout stays stable across renders
 const POSITIONS = Array.from({ length: 18 }, () => [
   Math.random() * 90 + 5,
   Math.random() * 90 + 5,
@@ -30,11 +29,6 @@ function buildBlobs() {
   }));
 }
 
-/**
- * A field of soft organic shapes covering the whole panel. Move the
- * mouse over it — nearby shapes grow, shift form and brighten. Purely
- * decorative, no dependencies beyond React.
- */
 export default function HoverField() {
   const containerRef = useRef(null);
   const blobRefs = useRef([]);
